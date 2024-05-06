@@ -8,7 +8,7 @@ License: AGPLv3
 
 Performs fuzzy keyword searches on inverted indices
 */
-
+ 
 namespace iSearch;
 
 // function to convert search query string into an array of words
