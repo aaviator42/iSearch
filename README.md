@@ -493,6 +493,10 @@ Array
     * iSearch works pretty well for full-text search. Simply run your documents through `stringToArray()`, strip out stop words and generate an inverted index from the resultant data.
  
 
+## Requirements
+* [Supported versions](https://www.php.net/supported-versions.php) of PHP. As of writing that's 8.1+. iSearch almost certainly works on older versions of PHP, but is not tested on those.
+
+
 ----
 
 Documentation updated: `2024-05-06`
