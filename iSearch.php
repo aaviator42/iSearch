@@ -271,14 +271,11 @@ function getSearchResults($index, $searchWords = [], $domain = []){
 	}
 	
 	/*
-	we are returning an array of index items, along with what % of search words they matched
+	we are returning an array of index items, along with what % of search words they matched,
+	and the words that were matches
 	(
-		[item_7204] => 16.67
-		[item_7542] => 16.67
-		[item_13] => 11.11
-		[item_1411] => 11.11
-		[item_3200] => 5.56
-		[item_4776] => 2.00
+		[item_7204] => [ "score" => 16.67], ["matches" => ["red", "car", "blue"]],
+		...
 	)
 	*/
 	
@@ -287,6 +284,7 @@ function getSearchResults($index, $searchWords = [], $domain = []){
 	
 	$finalResults = [];
 	
+	// add matches for each item to the result array
 	foreach($results as $result => $pScore){
 		$finalResults[$result]['score'] = $pScore;
 		$finalResults[$result]['matches'] = $keywordMatches[$result];
