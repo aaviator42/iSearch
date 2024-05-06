@@ -12,18 +12,18 @@ for search operations
 
 namespace iBuilder;
 
-//convert forward index into inverted index
+// convert forward index into inverted index
 function generateIndex($fIndex){
 	
-	//array to store inverted index in
+	// array to store inverted index in
 	$iIndex = [];
 	
-	//add each item from the forward index to the inverted index
+	// add each item from the forward index to the inverted index
 	foreach($fIndex as $item => $tags){
-		//remove duplicate tags
+		// remove duplicate tags
 		$tags = array_unique($tags);
 				
-		//add item to each word's list in inverted index
+		// add item to each word's list in inverted index
 		foreach($tags as $tag){
 			$iIndex[$tag][] = $item;
 		}
@@ -32,15 +32,15 @@ function generateIndex($fIndex){
 	return $iIndex;
 }
 
-//add items to inverted index
+// add items to inverted index
 function addToIndex($iIndex, $fIndex){
 	
-	//add each item from the forward index to the inverted index
+	// add each item from the forward index to the inverted index
 	foreach($fIndex as $item => $tags){
-		//remove duplicate tags
+		// remove duplicate tags
 		$tags = array_unique($tags);
 				
-		//add item to each word's list in inverted index
+		// add item to each word's list in inverted index
 		foreach($tags as $tag){
 			if(isset($iIndex[$tag])){
 				$iIndex[$tag] = array_values((array_merge($iIndex[$tag], [$item])));
@@ -53,15 +53,15 @@ function addToIndex($iIndex, $fIndex){
 	return $iIndex;
 }
 
-//remove items from inverted index
+// remove items from inverted index
 function removeFromIndex($iIndex, $fIndex){		
 	
-	//remove each item in the forward index from the inverted index
+	// remove each item in the forward index from the inverted index
 	foreach($fIndex as $item => $tags){
-		//remove duplicate tags
+		// remove duplicate tags
 		$tags = array_unique($tags);
 		
-		//remove item from index for each tag
+		// remove item from index for each tag
 		foreach($tags as $tag){
 			if(!isset($iIndex[$tag])){
 				continue;
@@ -69,8 +69,8 @@ function removeFromIndex($iIndex, $fIndex){
 			$iIndex[$tag] = array_values(array_unique(array_diff($iIndex[$tag], [$item])));
 			
 			if(count($iIndex[$tag]) === 0){
-				//no items remain in the list for a particular tag,
-				//so we remove the tag from the inverted index and the wordlist
+				// no items remain in the list for a particular tag,
+				// so we remove the tag from the inverted index and the wordlist
 				
 				unset($iIndex[$tag]);
 			}
