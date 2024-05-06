@@ -490,7 +490,7 @@ Array
 ## Notes
 
 * Full-text search
-    * iSearch works pretty well for full-text search. Simply run your documents through `stringToArray()`, strip out stop words and generate an inverted index from the resultant data.
+    * iSearch works pretty well for full-text search, especially in English. Simply run your documents through `stringToArray()`, strip out stop words and generate an inverted index from the resultant data.
  
 
 ## Requirements
