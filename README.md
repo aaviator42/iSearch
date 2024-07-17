@@ -359,7 +359,7 @@ $qArray = \iSearch\rootWords($qArray); // add root words to query array
 $searchWords = \iSearch\getSearchWords($qArray, $wordlist, 85); // ['cat', 'puppy', 'pet']
 ```
 
-##### 2.7 `getSearchResults($index, $searchWords = [], $domain = [])`
+#### 2.7 `getSearchResults($index, $searchWords = [], $domain = [])`
 
 This function compiles data from the supplied inverted index and returns search results. 
 
